@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>小猪猪牌智能字帖</title>
+    <style>
+        @font-face {
+            font-family: 'kongbi';
+            src: url('./kbzt.ttf');
+        }
+
+        body,
+        div,
+        p,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        div {
+            width: 1250px;
+            margin: 0 auto;
+            padding-left: 2px;
+        }
+
+        li {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            font-family: "楷体", "楷体_gb2312", "Kaiti SC", "STKaiti", "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", "KaiTi", "KaiTi_GB2312", "DFKai-SB", "TW\-Kai", "web-ukai", serif;
+            font-size: 58px;
+            text-align: center;
+            line-height: 80px;
+            margin: 5px 0px 5px -2px;
+        }
+
+        li.svg {
+            line-height: 68px;
+        }
+
+        li svg {
+            magin: 8px;
+            vertical-align: middle;
+        }
+
+        .afterpage {
+            page-break-before: always;
+        }
+
+        .page-head {
+            height: 116px;
+            line-height: 136px;
+            font-size: 32px;
+            text-align: center;
+            display: none;
+        }
+
+        @media print {
+            .afterpage {
+                page-break-before: always;
+            }
+
+            .page-head {
+                display: block
+            }
+
+            body {
+                -webkit-print-color-adjust: exact;
+                -moz-print-color-adjust: exact;
+                -ms-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            blockquote {
+                display: none;
+            }
+        }
+
+        @page {
+            size: auto;
+            margin: 5mm 16mm 5mm 16mm;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h4>小猪猪牌智能字帖</h4>
+    </center>
+
+    <div class="zi-page">
+        <ul id="lst">
+
+
+        </ul>
+    </div>
+    <!-- <input type="file" id="files" src="" style="display:none" onchange="importFile();"> -->
+    <script type="text/javascript" src="jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="zitie.js"></script>
+    <script type="text/javascript" src="CiKu.js"></script>
+    
+    <style>
+        #print-menu {
+            width: 80px;
+            position: fixed;
+            top: 180px;
+            right: 0px;
+            font-size: 22px;
+        }
+
+        #print-menu span,
+        #print-menu select {
+            width: 60px;
+            text-align: center;
+            display: block;
+            padding: 8px 10px;
+            background: #efefef;
+            border-radius: 6px;
+            border: 1px dashed #cccccc;
+            cursor: pointer
+        }
+
+        #print-menu .change_page_style {
+            display: none;
+            width: auto;
+        }
+
+        #print-menu .print,
+        #print-menu .change_page_style {
+            margin-top: 36px;
+        }
+    </style>
+
+    <blockquote id="print-menu">
+        <span class="print">打 印</span>
+    </blockquote>
+
+</body>
+
+</html>
