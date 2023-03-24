@@ -1,4 +1,4 @@
-
+$(function () {
     // str = getURLParameter('data');
     // ff = getURLParameter('font');
     // bg = getURLParameter('bg'); 
@@ -7,31 +7,30 @@
     // x = parseInt(getURLParameter('x'));
     // y = parseInt(getURLParameter('y'));
 
+    str = "西江月"
+    ff = "绿木屐JXP行楷"
+    bg = "bg12";
+    t = "933333000000"
+    fc = "2"
+    x = 0
+    y = 0
 
-$(function () {    str = "西江月"
-ff = "绿木屐JXP行楷"
-bg = "bg12";
-t = "933333000000"
-fc = "2"
-x = 0
-y = 0
-
-if (Object.is(x, NaN)) {
-    x = 0;
-}
-if (Object.is(y, NaN)) {
-    y = 0;
-}
-blank = str.length % 16;
-if (blank > 0) {
-    for (i = blank; i < 16; i++) {
-        str += " ";
+    if (Object.is(x, NaN)) {
+        x = 0;
     }
-}
-if (t == null) {
-    t = '9';
-}
-tran = (t + "00000000000000000000000").split("");
+    if (Object.is(y, NaN)) {
+        y = 0;
+    }
+    blank = str.length % 16;
+    if (blank > 0) {
+        for (i = blank; i < 16; i++) {
+            str += " ";
+        }
+    }
+    if (t == null) {
+        t = '9';
+    }
+    tran = (t + "00000000000000000000000").split("");
 
     // appendChar(str);
     appendPoetryChar();
@@ -168,12 +167,13 @@ function appendChar(str) {
 function appendPoetryChar() {
     $.each(objCiKu, function (index, objJson) {
         appendLine(objJson["title"], 1);
+        return false
         appendLine(objJson["author"] + "·" + objJson["years"], 1);
         var arrContent = objJson["content"];
-        $.each(arrContent,function(ind,strLine){
-            if(objJson["class"]=="0"){
+        $.each(arrContent, function (ind, strLine) {
+            if (objJson["class"] == "0") {
                 appendLine(strLine, 0);
-            }else if(objJson["class"]=="1"){
+            } else if (objJson["class"] == "1") {
                 appendLine(strLine, 1);
             }
         })
@@ -183,14 +183,14 @@ function appendPoetryChar() {
 function appendLine(strLine, formatType) {
     if (formatType == 0) {
         strLine = "  " + strLine;
-    }else if(formatType == 1){
+    } else if (formatType == 1) {
         blank = (16 - strLine.length) / 2;
         if (blank > 0) {
             for (i = 0; i < blank; i++) {
                 strLine = " " + strLine;
             }
         }
-    }else if(formatType == 2){
+    } else if (formatType == 2) {
     }
     blank = strLine.length % 16;
     if (blank > 0) {
@@ -206,13 +206,13 @@ function appendLine(strLine, formatType) {
         b = Math.round(parseInt(tran[a]) * (-17) + 255);
         ele.style = 'background: url("' + bg + '.svg") center center no-repeat;color: rgb(' + r + ', ' + g + ', ' + b + '); font-family:", ", "楷体", "楷体_gb2312", "Kaiti SC", "STKaiti", "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", "KaiTi", "KaiTi_GB2312", "DFKai-SB", "TW-Kai", "web-ukai", serif;';
         if (strLine[wd]) {
-            if(strLine[wd]==" "){
+            if (strLine[wd] == " ") {
                 ele.innerHTML = '<span style="margin:' + y + 'px ' + x + 'px 0px 0px;">&nbsp;</span>';
-            }else{
+            } else {
                 ele.innerHTML = '<span style="margin:' + y + 'px ' + x + 'px 0px 0px;">' + strLine[wd] + '</span>';
             }
-        } else { 
-            ele.innerHTML = "&nbsp;"; 
+        } else {
+            ele.innerHTML = "&nbsp;";
         }
         document.getElementById('lst').appendChild(ele);
     }
