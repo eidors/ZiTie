@@ -8,7 +8,8 @@ $(function () {
     // y = parseInt(getURLParameter('y'));
 
     str = "西江月"
-    ff = "绿木屐JXP行楷"
+    var arrFont=["华光硬笔简瘦金体","楷体","嗡阿吽－田英章钢笔楷书简","田英章行书","草书 简入繁出","汉仪篆书繁"];
+    ff = arrFont[0]//
     bg = "bg12";
     t = "933333000000"
     fc = "2"
@@ -167,7 +168,7 @@ function appendChar(str) {
 function appendPoetryChar() {
     $.each(objCiKu, function (index, objJson) {
         appendLine(objJson["title"], 1);
-        return false
+        // return false
         appendLine(objJson["author"] + "·" + objJson["years"], 1);
         var arrContent = objJson["content"];
         $.each(arrContent, function (ind, strLine) {
